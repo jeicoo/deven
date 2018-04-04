@@ -10,10 +10,10 @@ to be able to use this repo, you need the following installed in your local mach
 1. clone this repository
 2. go to repository directory
 3. provision your development environment, run:
-   ```
-   vagrant up
+   ```sh
+   $ vagrant up
    ```
 4. ssh into vagrant box:
-   ```
-   vagrant ssh
+   ```sh
+   $ vagrant ssh
    ```
