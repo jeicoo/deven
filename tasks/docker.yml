@@ -1,0 +1,27 @@
+---
+- name: install required packages
+  apt:
+    name: "{{ item }}"
+    state: "present"
+    install_recommends: False
+    update_cache: yes
+  with_items:
+    - "apt-transport-https"
+    - "ca-certificates"
+    - "software-properties-common"
+
+- name: add docker official gpg key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: add stable repository
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+
+- name: install docker ce
+  apt:
+    name: docker-ce
+    state: present
+    update_cache: yes
+
