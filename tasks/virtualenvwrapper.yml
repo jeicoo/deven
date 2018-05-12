@@ -1,0 +1,24 @@
+---
+- name: install pip
+  apt:
+    name: python-pip
+    update_cache: yes
+
+- name: create virtualenv directory
+  file:
+    path: "{{ virtualenv_dir }}"
+    state: directory
+    owner: vagrant
+
+- name: install virtualenvwrapper via pip
+  pip:
+    name: virtualenvwrapper
+
+- name: modify .bashrc
+  blockinfile:
+    path: /home/vagrant/.bashrc
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    insertafter: EOF
+    block: |
+      export WORKON_HOME={{ virtualenv_dir }}
+      source /usr/local/bin/virtualenvwrapper.sh
