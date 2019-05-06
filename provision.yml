@@ -1,9 +1,0 @@
----
-- hosts: all
-  become: yes
-  vars:
-    virtualenv_dir: /home/vagrant/.virtualenvs
-
-  tasks:
-  - import_tasks: tasks/docker.yml
-  - import_tasks: tasks/virtualenvwrapper.yml
