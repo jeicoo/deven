@@ -1,0 +1,9 @@
+- name: install libselinux-python
+  become: yes
+  dnf:
+    name: libselinux-python
+    state: latest
+- name: set hostname
+  become: yes
+  hostname:
+    name: dev.local

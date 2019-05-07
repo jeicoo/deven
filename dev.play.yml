@@ -1,0 +1,6 @@
+---
+- name: setup local development environment
+  hosts: dev
+  roles:
+    - prerequisites
+    - devtools

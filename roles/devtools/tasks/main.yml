@@ -1,0 +1,9 @@
+- name: install python3.7
+  become: yes
+  dnf:
+    name: python37
+    state: latest
+- name: install virtualenv
+  become: yes
+  pip:
+    name: virtualenv
